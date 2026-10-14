@@ -1,0 +1,6 @@
+# Dependências e builds de cada projeto já são ignorados em backend/.gitignore
+# e frontend/.gitignore. Este arquivo cobre o que pode aparecer na raiz.
+
+.DS_Store
+*.log
+.env
