@@ -1,0 +1,28 @@
+[
+  {
+    "id": "samsung-990-evo-1tb",
+    "categoria": "armazenamento",
+    "marca": "Samsung",
+    "modelo": "990 EVO 1TB",
+    "mpn": "MZ-V9E1T0BW",
+    "specs": {
+      "interface": "NVME"
+    },
+    "evidencias": {
+      "interface": "PCIe® 4.0 x4 / 5.0 x2 NVMe™ 2.0"
+    },
+    "fontes": [
+      {
+        "url": "https://www.samsung.com/uk/memory-storage/nvme-ssd/990-evo-1tb-nvme-pcie-mz-v9e1t0bw/",
+        "titulo": "Samsung 990 EVO 1TB NVMe M.2 SSD (página do Reino Unido)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "Formato M.2 (2280).",
+      "Segundo a página: leitura sequencial de até 5.000 MB/s e gravação de até 4.200 MB/s.",
+      "A fonte é a página do Reino Unido da Samsung. A página voltada ao Brasil não foi lida."
+    ]
+  }
+]

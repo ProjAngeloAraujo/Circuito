@@ -1,0 +1,32 @@
+[
+  {
+    "id": "corsair-4000d-airflow-cc-9011200-ww",
+    "categoria": "gabinete",
+    "marca": "Corsair",
+    "modelo": "4000D AIRFLOW Tempered Glass Mid-Tower ATX Case (preto)",
+    "mpn": "CC-9011200-WW",
+    "specs": {
+      "maxGpuLengthMm": 360,
+      "maxCoolerHeightMm": 170,
+      "formFactorsSuportados": ["ITX", "mATX", "ATX", "E-ATX"]
+    },
+    "evidencias": {
+      "maxGpuLengthMm": "Maximum GPU Length | 360mm",
+      "maxCoolerHeightMm": "Maximum CPU Cooler Height | 170mm",
+      "formFactorsSuportados": "Case Supported | Mini-ITX | MicroATX | ATX | E-ATX (305mm x 277mm)"
+    },
+    "fontes": [
+      {
+        "url": "https://www.corsair.com/us/en/p/pc-cases/cc-9011200-ww/4000d-airflow-tempered-glass-mid-tower-atx-case-black-cc-9011200-ww",
+        "titulo": "Corsair 4000D AIRFLOW Tempered Glass Mid-Tower ATX Case, preto (página oficial dos EUA)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "Comprimento máximo de fonte: 220mm.",
+      "Dimensões listadas: altura 466, comprimento 453, largura 230, sem unidade na página.",
+      "Não foi verificado se o limite de 360mm para a placa de vídeo muda com ventoinhas ou radiador instalados na frente."
+    ]
+  }
+]

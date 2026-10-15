@@ -1,0 +1,39 @@
+[
+  {
+    "id": "cooler-master-hyper-212-black",
+    "categoria": "cooler",
+    "marca": "Cooler Master",
+    "modelo": "Hyper 212 Black",
+    "mpn": "RR-S4KK-25SN-R1",
+    "specs": {
+      "heightMm": 152,
+      "socketsSuportados": [
+        "LGA1851",
+        "LGA1700",
+        "LGA1200",
+        "LGA1151",
+        "LGA1150",
+        "LGA1155",
+        "LGA1156",
+        "AM5",
+        "AM4"
+      ]
+    },
+    "evidencias": {
+      "heightMm": "Dimensions (L x W x H) 125 x 74 x 152 mm / 4.9 x 2.9 x 5.9 inch",
+      "socketsSuportados": "Intel® LGA 1851 / 1700 / 1200 / 1151 / 1150 / 1155 / 1156 socket; AMD® AM5 / AM4 Socket"
+    },
+    "fontes": [
+      {
+        "url": "https://www.coolermaster.com/en-global/products/hyper-212-black.html",
+        "titulo": "Cooler Master Hyper 212 Black CPU Air Cooler",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "A página não informa o TDP máximo que o cooler suporta.",
+      "A página cobre só a variante Hyper 212 Black. Outras variantes Hyper 212 são produtos diferentes."
+    ]
+  }
+]

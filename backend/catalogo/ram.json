@@ -1,0 +1,29 @@
+[
+  {
+    "id": "kingston-fury-beast-ddr5",
+    "categoria": "ram",
+    "marca": "Kingston",
+    "modelo": "FURY Beast DDR5 (linha de produtos)",
+    "specs": {
+      "ramType": "DDR5"
+    },
+    "evidencias": {
+      "ramType": "Kingston FURY™ Beast DDR5 Memory (título da página)"
+    },
+    "fontes": [
+      {
+        "url": "https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory",
+        "titulo": "Kingston FURY Beast DDR5 Memory (página oficial da Kingston)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "Este registro é da linha de produtos, não de um kit específico. A página não traz código de peça, então não há mpn.",
+      "A página não tem um campo de tipo de memória. O DDR5 vem do nome do produto.",
+      "Velocidades: 5200MT/s, 5600MT/s, 6000MT/s, 6400MT/s, 6800MT/s.",
+      "Capacidades: unidades de 8, 16, 32 e 64GB; kits de 2 de 16, 32, 64 e 128GB; kits de 4 de 64 e 128GB.",
+      "Módulo do tipo UDIMM, com tensão de 1.25V, 1.35V ou 1.4V conforme o modelo."
+    ]
+  }
+]

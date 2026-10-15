@@ -1,0 +1,36 @@
+[
+  {
+    "id": "asus-dual-rtx4060-o8g",
+    "categoria": "gpu",
+    "marca": "ASUS",
+    "modelo": "Dual GeForce RTX 4060 OC Edition 8GB GDDR6",
+    "mpn": "DUAL-RTX4060-O8G",
+    "specs": {
+      "lengthMm": 227.2,
+      "tdpW": 115
+    },
+    "evidencias": {
+      "lengthMm": "227.2 x 123.24 x 49.6 mm",
+      "tdpW": "Total Graphics Power (W): 115 (página da NVIDIA para a GeForce RTX 4060)"
+    },
+    "fontes": [
+      {
+        "url": "https://www.asus.com/us/motherboards-components/graphics-cards/dual/dual-rtx4060-o8g/techspec/",
+        "titulo": "ASUS Dual GeForce RTX 4060 OC Edition 8GB GDDR6, Tech Specs",
+        "coletadaEm": "2026-10-14"
+      },
+      {
+        "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4060-4060ti/",
+        "titulo": "NVIDIA GeForce RTX 4060 e 4060 Ti (especificações)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "O comprimento é o primeiro valor de '227.2 x 123.24 x 49.6 mm'. A página da ASUS não diz qual medida é qual: confirme.",
+      "A página da ASUS não informa a potência da placa. Os 115 W vêm da NVIDIA para a RTX 4060, e este modelo é OC, então o consumo real pode diferir.",
+      "Conector de energia na ASUS: 1 x 8-pin. Fonte recomendada: 550W na ASUS (considerando processador e placa totalmente em overclock) e 'Required System Power (W) 550' na NVIDIA.",
+      "Ocupa 2.5 slots."
+    ]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "asus-prime-b650m-a",
+    "categoria": "placa-mae",
+    "marca": "ASUS",
+    "modelo": "PRIME B650M-A",
+    "specs": {
+      "socket": "AM5",
+      "ramType": "DDR5",
+      "m2Slots": 2,
+      "formFactor": "mATX"
+    },
+    "evidencias": {
+      "socket": "AMD Socket AM5 for AMD Ryzen™ 9000 & 8000 & 7000 Series Desktop Processors*",
+      "ramType": "4 x DIMM, DDR5 5600(OC)/5400(OC)/5200/5000/4800, ECC and Non-ECC, Un-buffered Memory*",
+      "m2Slots": "2 x M.2 slots (Key M)",
+      "formFactor": "mATX Form Factor"
+    },
+    "fontes": [
+      {
+        "url": "https://www.asus.com/motherboards-components/motherboards/prime/prime-b650m-a/techspec/",
+        "titulo": "PRIME B650M-A, Tech Specs (ASUS Global)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "A página usa asterisco depois da lista de processadores e da lista de memórias. O texto do asterisco não foi lido: confira se há exigência de atualização de BIOS.",
+      "Chipset AMD B650, com 4 slots DIMM.",
+      "M.2_1: PCIe 5.0 x4 (com Ryzen 9000 e 7000). M.2_2: PCIe 4.0 x4 (pelo chipset). Os dois aceitam os tamanhos 2242, 2260 e 2280.",
+      "Existem variantes de nome parecido (WIFI II, AX6 II) que são produtos diferentes."
+    ]
+  }
+]

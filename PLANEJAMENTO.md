@@ -114,11 +114,20 @@ de por que uma combinação foi rejeitada.
 orçamento e, quando não houver combinação possível, uma mensagem dizendo qual restrição
 impediu e o que o usuário pode ajustar.
 
-## 6. Catálogo de peças *(a construir)*
+## 6. Catálogo de peças *(piloto implementado)*
 
 O catálogo guarda as especificações técnicas de cada peça e é a base das regras de
 compatibilidade, então um erro de especificação gera uma recomendação errada. Por isso ele é
 curado e revisado, nunca importado às cegas.
+
+**Estado real.** `backend/catalogo/<categoria>.json` tem 9 peças piloto (uma por categoria, mais
+um segundo processador), todas com `status: "rascunho"` — coletadas automaticamente a partir de
+páginas de fabricante, mas **ainda não revisadas por uma pessoa**. `backend/src/catalogo/`
+carrega e valida esses arquivos (`npm run catalogo:validar`); a validação e os campos
+obrigatórios por categoria vivem em `backend/src/pesquisa/campos.ts` e
+`catalogo.validacao.ts`. O processo de revisão está documentado em
+[backend/catalogo/LEIAME.md](backend/catalogo/LEIAME.md). O catálogo ainda não está ligado à
+triagem nem a um motor de montagem.
 
 **Categorias.** Processador, placa-mãe, memória RAM, placa de vídeo, armazenamento, fonte,
 gabinete e cooler.
@@ -136,11 +145,21 @@ a categoria.
 
 **Regra de qualidade.** Peça com especificação incompleta não participa da montagem.
 
-## 7. Preços e cupons *(a construir)*
+## 7. Preços e cupons *(a construir — piloto alternativo em avaliação)*
 
 O sistema pesquisa preços e cupons em fontes confiáveis e entrega cada dado com origem e data,
 para que o usuário possa conferir antes de comprar. A coleta roda em segundo plano e o chat
 consulta o resultado já guardado.
+
+**Nota.** Existe um piloto em `backend/src/pesquisa/` que ataca o mesmo problema por um caminho
+diferente do descrito abaixo: em vez de coletores próprios por loja, ele usa a ferramenta de
+busca na web da API da Anthropic (`AnthropicService`), restrita por `LOJAS_PERMITIDAS` e
+`FABRICANTES_PERMITIDOS`, com as mesmas garantias de verificação (URL precisa ter vindo da
+busca, preço precisa ser numérico, cupom precisa ter origem/validade) e cache em memória, não
+em banco. Compatibilidade continua decidida só em código
+(`backend/src/pesquisa/compatibilidade.ts`), nunca pela IA. Isso ainda não está integrado à
+triagem/sessão, e a decisão entre os dois caminhos (coletores próprios vs. busca via IA) é uma
+decisão em aberto — ver seção 13.
 
 **Fontes candidatas.** Lojas brasileiras de hardware, como KaBuM!, Pichau e Terabyte,
 marketplaces como Amazon Brasil e Mercado Livre, comparadores de preço e comunidades de
@@ -207,9 +226,10 @@ configurada.
 |---|---|---|
 | `sessoes` | Endpoints do chat e controle da sessão | Implementado, em memória |
 | `triagem` | Perguntas, validação das respostas e resumo do perfil | Implementado |
-| `catalogo` | Peças e especificações | A fazer |
+| `catalogo` | Peças e especificações | Piloto (9 peças, `rascunho`, sem ligação à triagem) |
+| `pesquisa` | Ficha técnica, preços e compatibilidade via IA + regras em código | Piloto (não previsto na arquitetura original da seção 9; ver seção 7) |
 | `montagem` | Alocação de orçamento e regras de compatibilidade | A fazer |
-| `precos` | Coletores, cache, histórico de preços e cupons | A fazer |
+| `precos` | Coletores, cache, histórico de preços e cupons | A fazer (ver nota na seção 7 sobre o piloto `pesquisa`) |
 | `explicacao` | Integração com o LLM e validação da saída | A fazer |
 | `jobs` | Filas e agendamentos de coleta | A fazer |
 
@@ -223,6 +243,9 @@ configurada.
 | POST | `/sessoes/:id/mensagens` | Recebe a resposta e devolve a próxima pergunta, o erro de validação ou o resumo | Implementado |
 | GET | `/sessoes/:id/configuracao` | Configuração atual com preços e fontes | Previsto |
 | GET | `/pecas/:id/ofertas` | Ofertas e histórico de preço da peça | Previsto |
+| POST | `/pesquisa/analisar` | Pesquisa ficha técnica e preços de uma lista de peças e confere compatibilidade | Implementado (piloto); responde 503 sem `ANTHROPIC_API_KEY` |
+| POST | `/pesquisa/ficha` | Ficha técnica de uma peça | Implementado (piloto); idem |
+| POST | `/pesquisa/ofertas` | Ofertas de preço de uma peça | Implementado (piloto); idem |
 
 Erros seguem o padrão HTTP: 400 para corpo inválido (ex.: campo `texto` ausente) e 404 para
 sessão inexistente. Resposta de triagem semanticamente inválida (opção não reconhecida, valor
@@ -316,7 +339,7 @@ taxa de explicações do LLM rejeitadas pela validação. *A construir.*
 
 ```
 .
-├── backend/      API NestJS (src/sessoes, src/triagem, ...)
+├── backend/      API NestJS (src/sessoes, src/triagem, src/catalogo, src/pesquisa, catalogo/)
 ├── frontend/     Interface React + Vite (src/)
 ├── docker-compose.yml
 ├── PLANEJAMENTO.md
@@ -352,7 +375,7 @@ registra as decisões. Ambos são atualizados na mesma mudança que altera o com
 | Fase | Entrega | Critério de pronto | Estado |
 |---|---|---|---|
 | Fase 1: fundação e triagem | Backend e frontend isolados, chat e triagem por regras | O usuário responde às 7 perguntas e vê o resumo do perfil; resposta inválida repete a pergunta | **Concluída** |
-| Fase 1b: catálogo e compatibilidade | Catálogo manual de peças e regras de compatibilidade | Cada regra tem testes unitários; peça sem especificação completa fica fora da montagem | A fazer |
+| Fase 1b: catálogo e compatibilidade | Catálogo manual de peças e regras de compatibilidade | Cada regra tem testes unitários; peça sem especificação completa fica fora da montagem | Em andamento — catálogo e regras existem como piloto (seção 6), falta revisão humana das peças e ligação com a triagem |
 | Fase 2: montagem e preços | Configuração dentro do orçamento, coletor piloto e histórico de preços | Cada peça mostra preço, loja, fonte e data; o total não passa do orçamento | A fazer |
 | Fase 3: explicação | Camada de LLM | Nenhum nome ou número fora da configuração passa pela validação; há texto padrão por regras como reserva | A fazer |
 | Fase 4: cupons e alertas | Cupons válidos e aviso de queda de preço | Cupom sem origem, regra ou validade nunca aparece; queda no histórico é sinalizada | A fazer |
@@ -381,6 +404,12 @@ registra as decisões. Ambos são atualizados na mesma mudança que altera o com
 - [ ] Percentuais de orçamento por categoria e por perfil de uso
 - [ ] ORM e banco: PostgreSQL e Redis estão previstos, o ORM não
 - [ ] Licença do repositório
+- [ ] Preços e cupons: manter o caminho de coletores próprios por loja (seção 7, original) ou
+      seguir com o piloto de busca via IA (`backend/src/pesquisa/`), ou os dois — e, se os dois,
+      como cada um se integra ao catálogo e ao motor de montagem
+- [ ] Revisão humana das 9 peças piloto do catálogo (hoje `rascunho`) antes de qualquer uso real
+- [ ] Listas de `LOJAS_PERMITIDAS`/`FABRICANTES_PERMITIDOS` do módulo `pesquisa` são as do código
+      extraído, ainda não revisadas por quem decide quais lojas são confiáveis
 
 ### Decidido
 
@@ -403,5 +432,10 @@ registra as decisões. Ambos são atualizados na mesma mudança que altera o com
 - `docker compose up --build` sobe os dois containers; testado de ponta a ponta (health check,
   criação de sessão, CORS entre as origens e a URL da API embutida corretamente no bundle do
   frontend)
+- Catálogo (`backend/catalogo/`, 9 peças `rascunho`) e módulo `pesquisa` (ficha técnica, preços
+  e compatibilidade via IA, com `@anthropic-ai/sdk` e `@nestjs/config`) integrados ao
+  `AppModule`; `npm run catalogo:validar` reporta "Nenhum problema encontrado"; suíte de testes
+  do backend em 55 (17 de sessões/triagem + 38 de catálogo/pesquisa), todos passando
 - Sessões em memória, sem banco de dados
-- Sem catálogo, montagem, preços, cupons, LLM, testes de ponta a ponta ou CI
+- Sem montagem (ligar triagem → catálogo → preços), cupons, camada de explicação por LLM
+  (seção 8, distinta do piloto `pesquisa`), testes de ponta a ponta no frontend ou CI

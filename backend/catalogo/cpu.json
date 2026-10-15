@@ -1,0 +1,61 @@
+[
+  {
+    "id": "amd-ryzen-5-7600",
+    "categoria": "cpu",
+    "marca": "AMD",
+    "modelo": "Ryzen 5 7600",
+    "mpn": "100-100001015BOX",
+    "specs": {
+      "socket": "AM5",
+      "tdpW": 65
+    },
+    "evidencias": {
+      "socket": "CPU Socket: AM5",
+      "tdpW": "Default TDP: 65W"
+    },
+    "fontes": [
+      {
+        "url": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
+        "titulo": "AMD Ryzen 5 7600 (página oficial da AMD)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "O código 100-100001015BOX é o da versão em caixa. A versão sem caixa (tray) é 100-000001015.",
+      "A página informa memória DDR5 e não lista DDR4.",
+      "A página lista 'Thermal Solution (PIB): AMD Wraith Stealth', mas não afirma que o cooler vem na caixa.",
+      "A página só informa o TDP padrão. Não há valor de potência máxima, então a estimativa da fonte usa os 65 W."
+    ]
+  },
+  {
+    "id": "intel-core-i5-14400f",
+    "categoria": "cpu",
+    "marca": "Intel",
+    "modelo": "Core i5-14400F",
+    "specs": {
+      "socket": "FCLGA1700",
+      "tdpW": 65,
+      "potenciaMaximaW": 148
+    },
+    "evidencias": {
+      "socket": "Sockets Supported: FCLGA1700",
+      "tdpW": "Processor Base Power: 65 W",
+      "potenciaMaximaW": "Maximum Turbo Power: 148 W"
+    },
+    "fontes": [
+      {
+        "url": "https://www.intel.com/content/www/us/en/products/sku/236777/intel-core-i5-processor-14400f-20m-cache-up-to-4-70-ghz/specifications.html",
+        "titulo": "Intel Core i5 processor 14400F (página de especificações da Intel)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "A Intel escreve o soquete como FCLGA1700. As regras tratam FCLGA1700 e LGA1700 como o mesmo soquete.",
+      "Memória segundo a página: 'Up to DDR5 4800 MT/s' e 'Up to DDR4 3200 MT/s'. O processador aceita os dois tipos, e quem define o tipo é a placa-mãe.",
+      "O código de pedido (MM number) não estava na página lida, então o mpn ficou em branco.",
+      "Temperatura máxima de operação: 100 °C."
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "corsair-rm750e-cp-9020295-na",
+    "categoria": "fonte",
+    "marca": "Corsair",
+    "modelo": "RM750e (RMe Series, 750W)",
+    "mpn": "CP-9020295-NA",
+    "specs": {
+      "potenciaW": 750
+    },
+    "evidencias": {
+      "potenciaW": "Continuous Power W | 750 Watts"
+    },
+    "fontes": [
+      {
+        "url": "https://www.corsair.com/us/en/p/psu/cp-9020295-na/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-cp-9020295-na",
+        "titulo": "Corsair RMe Series RM750e (página oficial dos EUA)",
+        "coletadaEm": "2026-10-14"
+      }
+    ],
+    "status": "rascunho",
+    "notas": [
+      "A página informa padrão ATX12V 3.1 e eficiência Cybenetics Gold.",
+      "Conectores para placa de vídeo na lista de cabos: 1 x 12V-2x6 (12+4 pinos) e 1 x PCIe 8-pin (6+2). Há ainda um cabo 12V-2x6 para dois conectores 8-pin (6+2). A página não informa o total de 8-pin disponíveis.",
+      "Dimensões: '140x150x86', sem unidade na página.",
+      "Modelo RPS0215 e part number 75-006460.",
+      "Este é o código vendido nos EUA (sufixo NA). O código vendido no Brasil pode ser outro."
+    ]
+  }
+]
